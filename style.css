@@ -1,0 +1,746 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Set a background color */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.mobileNav {
+    display: none;
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(255, 255, 255);
+    z-index: 300;
+}
+.mobileNav ul {
+    list-style: none;
+    margin: 100px auto;
+    padding: 0;
+    width: 70%;
+    
+}
+.mobileNav a {
+    text-decoration: none;
+    font-size: 28px;
+    color: #292E31;
+}
+
+
+nav {
+    width: 98%;
+    height: 102px;
+    margin: 0 auto;
+    background: #292E31;
+    position: absolute;
+    bottom: 0;
+    left: 1%;
+    z-index: 100;
+}
+
+nav ul {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 30px 0;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 52px;
+}
+
+#pancho {
+    width: 100%;
+    position: relative;
+    background: url(images/pancho.png) no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-attachment: fixed;
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+}
+
+#pancho h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 187px;
+    line-height: 135px;
+    width: 536px;
+    color: white;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+#pancho p {
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 52px;
+    width: 690px;
+    color: white;
+}
+
+#pancho .overlay {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(89.92deg, rgba(0, 0, 0, 0.53) 0.09%, rgba(0, 0, 0, 0) 44.81%);
+    display: flex;
+    align-items: center;
+}
+
+#pancho .overlay div {
+    /* width: 700px; */
+    margin-left: 50px;
+}
+
+#vidBtn {
+    position: absolute;
+    width: 207px;
+    height: 207px;
+    right: 50px;
+    top: 43px;
+}
+
+#vidBtn path {
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+#vidBtn:hover path {
+    fill: #343A59;
+}
+
+.timeWrap {
+    /* padding-top: 50px; */
+    width: 98%;
+    margin: 0 auto;
+    height: 100%;
+    background-color: #343A59;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+}
+
+/* The actual timeline (the vertical ruler) */
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+
+/* The actual timeline (the vertical ruler) */
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+/* Container around content */
+
+.container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+
+.container::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid #343A59;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Place the container to the left */
+
+.left {
+    left: 0;
+}
+
+/* Place the container to the right */
+
+.right {
+    left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+
+.right::after {
+    left: -16px;
+}
+
+/* The actual content */
+
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+
+.sticky+.content {
+    padding-top: 60px;
+}
+
+.blockTop {
+    width: 98%;
+    margin: 0 auto;
+    min-height: 187px;
+    background: #292E31;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+    padding-bottom: 50px;
+}
+
+.blockTop h2 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 121px;
+    line-height: 100px;
+    color: white;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    
+}
+
+.panchoStoryBody {
+    width: 98%;
+    min-height: 703px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 40% 59%;
+    grid-gap: 1%;
+}
+
+.panchoStoryBody .imgic{
+    width: 100%;
+    
+}
+
+
+
+.panchoStoryBody h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 55px;
+    max-width: 100%;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    padding: 50px;
+}
+
+.panchoStoryBody img {
+    width: 100%;
+    height: 785px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.panchoStoryBody #staring {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.darkBg {
+    background: #292E31;
+    padding: 20px;
+}
+
+.bgLight{
+    background: #ffffff;
+    padding: 20px;
+}
+
+.panchoStoryBody p {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 28px;
+    line-height: 34px;
+    color: white;
+    padding: 50px;
+}
+
+.panchoStoryBody p a {
+    color: #A1B0FE;
+
+}
+
+.panchoStoryBody .bgLight p {
+    font-family: 'Montserrat', sans-serif;
+font-style: normal;
+font-weight: normal;
+font-size: 28px;
+line-height: 34px;
+color: #292E31;
+padding: 10px;
+}
+
+.panchoStoryBody .second img {
+    width: 100%;
+    height: 400px;
+}
+
+.panchoStoryBody .third img {
+    width: 100%;
+    height: 900px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.short {
+    height: auto;
+    min-height: unset;
+}
+
+.panchoStoryBody .bgLight .fat{
+    font-family: 'Montserrat', sans-serif;
+font-style: normal;
+font-weight: bold;
+font-size: 48px;
+line-height: 64px;
+
+color: #292E31;
+}
+
+#timelineBtn {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#timelineBtn button {
+    padding: 20px 20px;
+    background: white;
+    color: #343A59;
+    font-family: 'Montserrat', sans-serif;
+font-style: normal;
+font-weight: 900;
+font-size: 24px;
+line-height: 29px;
+border: none;
+cursor: pointer;
+transition: 0.5s;
+}
+
+#timelineBtn button:hover {
+    
+    background: #292E31;
+    color: white;
+}
+
+.hidden {
+    display: none;
+    
+}
+
+.fade{
+    -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+    -webkit-animation-duration: 3s;
+            animation-duration: 3s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+
+
+
+.vidGrid {
+    width: 98%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, auto));
+    grid-gap: 10px;
+    padding: 20px 0;
+}
+
+.vidGrid video {
+    width: 100%;
+    height: 100%;
+}
+
+.imgGrid {
+    width: 98%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+    grid-gap: 10px;
+    padding: 20px 0;
+}
+
+.imgGrid img {
+    width: 100%;
+}
+
+
+.factsBody{
+    width: 98%;
+    margin: 0 auto;
+    min-height: 60vh;
+}
+.factsBody ul {
+    padding-top: 20px;
+}
+
+.factsBody li {
+font-style: normal;
+font-weight: 900;
+font-size: 18px;
+line-height: 29px;
+}
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
+ 
+ @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
+
+ @-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+ }
+ 
+ @keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+ }
+ 
+ .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+ }
+
+ .fadeInLeft {
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+ }
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+  .openMobile{
+      position: absolute;
+      top: 20px;
+      right: 10px;
+      color: white;
+      display: none;
+  }
+
+ 
+
+  @media screen and (max-width: 1024px){
+      #pancho h1 {
+        font-size: 7rem;
+        line-height: 6rem;
+    }
+
+    #pancho p {
+        font-size: 2rem;
+    line-height: 2rem;
+    width: 400px;
+    }
+      
+      .panchoStoryBody {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .panchoStoryBody h3 {
+        font-size: 3rem;
+        width: 80%;
+      }
+
+      .panchoStoryBody p {
+        padding: 10px;
+        margin: 0;
+      }
+
+      .panchoStoryBody .bgLight .fat{
+          margin: 0;
+          font-size: 2rem;
+    line-height: 2.2rem;
+      }
+
+      nav a {
+          font-size: 20px;
+      }
+
+      #vidBtn {
+        top: 500px;
+      }
+  }
+
+
+  @media screen and (max-width: 768px) {
+     
+
+  
+
+    
+    
+    #vidBtn {
+        width: 100px;
+    }
+    #pancho h1 {
+        font-size: 5rem;
+        width: 500px;
+        line-height: 5rem;
+    }
+    #pancho p {
+        font-size: 1.5rem;
+    line-height: 1.5rem;
+    width: 400px;
+    }
+
+    .blockTop h2 {
+        font-size: 3.4rem;
+    }
+
+  }
+/* Media queries - Responsive timeline on screens less than 600px wide */
+
+@media screen and (max-width: 600px) {
+    /* Place the timelime to the left */
+    .timeline::after {
+        left: 31px;
+    }
+    /* Full-width containers */
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    /* Make sure that all arrows are pointing leftwards */
+    .container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+    /* Make sure all circles are at the same spot */
+    .left::after, .right::after {
+        left: 15px;
+    }
+    /* Make all right containers behave like the left ones */
+    .right {
+        left: 0%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    
+    .openMobile{
+        
+        display: block;
+    }
+    .vidGrid {
+        display:block;
+    }
+
+    .vidGrid video {
+        width: 100%
+    }
+    
+    .blockTop h2 {
+        font-size: 4rem;
+    }
+
+    .panchoStoryBody .third img{
+        height: 400px;
+    }
+    nav{
+        position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;
+    }
+    nav ul {
+        display: none;
+    }
+    nav a {
+        font-size: 10px;
+    }
+
+    #pancho h1 {
+        font-size: 4rem;
+        width:100%;
+        line-height: 3.5rem;
+    }
+
+    #pancho .overlay div {
+        margin-left: 0;
+        padding-left: 10px;
+    }
+
+    #vidBtn {
+        top: 420px;
+    right: unset;
+    left: 10px;
+    width: 70px;
+    }
+
+    .panchoStoryBody h3 {
+        padding: 0;
+        margin: 0 auto;
+        font-size: 2rem;
+    }
+
+    #imageToShow img {
+        width: 100%;
+    }
+
+    .modal-content{
+        width: 99%;
+        margin: 25% auto;
+    }
+
+    #pancho p {
+        font-size: 1.5rem;
+    line-height: 1.5rem;
+    width: 60%;
+    }
+}
