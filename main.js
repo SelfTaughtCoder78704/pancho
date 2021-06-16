@@ -52,7 +52,7 @@ let span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal
 function showModal(e) {
   modal.style.display = "block";
-  imageToShow.innerHTML = `<img src="${this.src}" alt="evidence photo">`
+  imageToShow.innerHTML = ` <p>${this.getAttribute('data-text')}</p><img src="${this.src}" alt="evidence photo">`
 }
 
 evidenceImages.forEach(img => {

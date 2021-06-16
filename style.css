@@ -457,6 +457,7 @@ transition: 0.5s;
 
 .imgGrid img {
     width: 100%;
+    height: 100%;
 }
 
 
@@ -475,6 +476,18 @@ font-weight: 900;
 font-size: 18px;
 line-height: 29px;
 }
+
+
+.message {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.message p {
+    font-size: 22px;
+}
+
 @-webkit-keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
@@ -526,7 +539,7 @@ line-height: 29px;
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 900; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -544,6 +557,11 @@ line-height: 29px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
   }
+
+  #imageToShow img {
+    width: 100%;
+}
+
   
   /* The Close Button */
   .close {
@@ -616,7 +634,9 @@ line-height: 29px;
 
   @media screen and (max-width: 768px) {
      
-
+    .message p {
+        font-size: 1rem;
+    }
   
 
     
@@ -671,7 +691,9 @@ line-height: 29px;
 }
 
 @media screen and (max-width: 480px) {
-    
+    .message{
+        width: 80%;
+    }
     .openMobile{
         
         display: block;
