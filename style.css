@@ -458,6 +458,7 @@ transition: 0.5s;
 .imgGrid img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 
@@ -560,6 +561,9 @@ line-height: 29px;
 
   #imageToShow img {
     width: 100%;
+}
+.modal-content p {
+    font-size: 24px;
 }
 
   
