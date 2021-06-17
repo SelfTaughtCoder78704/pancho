@@ -473,7 +473,7 @@ transition: 0.5s;
 
 .factsBody li {
 font-style: normal;
-font-weight: 900;
+font-weight: normal;
 font-size: 18px;
 line-height: 29px;
 }
@@ -642,7 +642,9 @@ line-height: 29px;
         font-size: 1rem;
     }
   
-
+    #facts h3 {
+        text-align: center;
+    }
     
     
     #vidBtn {
