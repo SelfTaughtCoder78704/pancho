@@ -101,3 +101,27 @@ mobileLinks.forEach(link => {
 })
 
 
+let options = {
+  root:null,
+  rootMargin: '0px',
+  threshold: 0.25
+}
+
+
+let callback = (entries, observer) => {
+  entries.forEach(entry => {
+      if(entry.isIntersecting 
+          && entry.target.className == 'observed'){
+              let vidUrl = entry.target.getAttribute('data-src')
+              if(vidUrl){
+                  entry.target.src = vidUrl
+                  observer.unobserve(entry.target)
+                  console.log(entry.target)
+              }
+          }
+  })
+}
+
+let observer = new IntersectionObserver(callback, options)
+let alllazy = document.querySelectorAll('.observed')
+alllazy.forEach(vid => observer.observe(vid));
