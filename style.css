@@ -62,7 +62,7 @@ nav a {
     text-decoration: none;
     color: white;
     font-weight: 900;
-    font-size: 36px;
+    font-size: 22px;
     line-height: 52px;
 }
 
@@ -151,6 +151,8 @@ h1 {
     padding-bottom: 100px;
     padding-top: 50px;
 }
+
+
 
 /* The actual timeline (the vertical ruler) */
 
@@ -322,7 +324,7 @@ h1 {
 
 .panchoStoryBody #staring {
     width: 100%;
-    height: 100%;
+    height:  785px;
     object-fit: cover;
     object-position: center;
 }
@@ -433,12 +435,24 @@ transition: 0.5s;
 
 
 .vidGrid {
-    width: 98%;
+    width: 70%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, auto));
-    grid-gap: 10px;
+    
     padding: 20px 0;
+}
+
+.vidGrid ol {
+    padding: 20px auto;
+}
+
+.vidGrid li {
+  
+        font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 29px;
+
+
 }
 
 .vidGrid video {
@@ -461,9 +475,16 @@ transition: 0.5s;
     object-fit: cover;
 }
 
+#resourceBody, .searchBody {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+
 
 .factsBody{
-    width: 98%;
+    width: 70%;
     margin: 0 auto;
     min-height: 60vh;
 }
@@ -479,14 +500,30 @@ line-height: 29px;
 }
 
 
-.message {
+.message{
     width: 70%;
     text-align: center;
     margin: 0 auto;
 }
 
+.vidHere {
+    width: 98%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.vidHere iframe {
+    width: 100%;
+    height: 60vh;
+}
+
 .message p {
     font-size: 22px;
+}
+
+#myModalVid iframe {
+    width: 100%;
+    height: 60vh;
 }
 
 @-webkit-keyframes fadeIn {
@@ -559,6 +596,10 @@ line-height: 29px;
     width: 80%; /* Could be more or less, depending on screen size */
   }
 
+  #myModalVid .modal-content {
+    margin: 10% auto; /* 15% from the top and centered */
+  }
+
   #imageToShow img {
     width: 100%;
 }
@@ -577,6 +618,20 @@ line-height: 29px;
   
   .close:hover,
   .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .close2 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close2:hover,
+  .close2:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
